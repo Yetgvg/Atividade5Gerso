@@ -73,10 +73,6 @@ app.post('/cadastrar-cliente', (req, res) => {
 
 // Rota para obter os produtos disponíveis
 app.get('/produtos', (req, res) => {
-  const idCliente = req.params.idCliente;
-
-  // Realize a lógica de consulta no banco de dados usando a conexão 'db'
-
   // Exemplo de consulta
   const query = 'SELECT * FROM produto';
   db.query(query, (error, results) => {
@@ -84,7 +80,25 @@ app.get('/produtos', (req, res) => {
       console.error('Erro ao obter produtos:', error);
       res.status(500).json({ message: 'Erro ao obter produtos' });
     } else {
-      res.status(200).json({ idCliente, produtos: results });
+      res.status(200).json({ produtos: results });
+    }
+  });
+});
+
+app.put('/produtos/:idProduto', (req, res) => {
+  const idProduto = req.params.idProduto;
+  const novoNome = req.body.nome;
+
+  // Realize a lógica de atualização do produto no banco de dados usando a conexão 'db'
+
+  // Exemplo de código para atualização do produto
+  const query = 'UPDATE produto SET nome = ? WHERE id = ?';
+  db.query(query, [novoNome, idProduto], (error, results) => {
+    if (error) {
+      console.error('Erro ao atualizar o produto:', error);
+      res.status(500).json({ message: 'Erro ao atualizar o produto' });
+    } else {
+      res.status(200).json({ message: 'Produto atualizado com sucesso' });
     }
   });
 });
@@ -104,6 +118,23 @@ app.get('/servicos', (req, res) => {
   });
 });
 
+app.put('/servicos/:idServico', (req, res) => {
+  const idServico = req.params.idServico;
+  const novoNome = req.body.nome;
+
+  // Realize a lógica de atualização do produto no banco de dados usando a conexão 'db'
+
+  // Exemplo de código para atualização do produto
+  const query = 'UPDATE servico SET nome = ? WHERE id = ?';
+  db.query(query, [novoNome, idServico], (error, results) => {
+    if (error) {
+      console.error('Erro ao atualizar o serviço:', error);
+      res.status(500).json({ message: 'Erro ao atualizar o serviço' });
+    } else {
+      res.status(200).json({ message: 'Serviço atualizado com sucesso' });
+    }
+  });
+});
 
 // Rota para autenticar o cliente
 app.post('/autenticar-cliente', (req, res) => {
@@ -187,6 +218,43 @@ app.post('/cadastrar-pet', (req, res) => {
   });
 });
 
+// Rota para cadastrar um novo produto
+app.post('/cadastrar-produto', (req, res) => {
+  // Obtenha os dados do produto a partir do corpo da requisição
+  const { nome } = req.body;
+
+  // Realize as ações necessárias para cadastrar o produto no banco de dados
+  const novoProduto = { nome };
+
+  db.query('INSERT INTO produto SET ?', novoProduto, (error, result) => {
+    if (error) {
+      console.error('Erro ao cadastrar produto:', error);
+      res.status(500).json({ success: false, error: 'Erro ao cadastrar produto' });
+    } else {
+      console.log('Produto cadastrado com sucesso');
+      res.json({ success: true, message: 'Produto cadastrado com sucesso' });
+    }
+  });
+});
+
+// Rota para cadastrar um novo produto
+app.post('/cadastrar-servico', (req, res) => {
+  // Obtenha os dados do produto a partir do corpo da requisição
+  const { nome } = req.body;
+
+  // Realize as ações necessárias para cadastrar o produto no banco de dados
+  const novoServico = { nome };
+
+  db.query('INSERT INTO servico SET ?', novoServico, (error, result) => {
+    if (error) {
+      console.error('Erro ao cadastrar servico:', error);
+      res.status(500).json({ success: false, error: 'Erro ao cadastrar servico' });
+    } else {
+      console.log('Servico cadastrado com sucesso');
+      res.json({ success: true, message: 'Servico cadastrado com sucesso' });
+    }
+  });
+});
 
 // Rota para listar os serviços comprados por um cliente
 app.get('/listar-servicos/:idCliente', (req, res) => {
@@ -201,7 +269,7 @@ app.get('/listar-servicos/:idCliente', (req, res) => {
     JOIN servico s ON ss.idServico = s.id
     WHERE ss.idCliente = ?;
   `;
-  
+
   db.query(query, [idCliente], (error, results) => {
     if (error) {
       console.error('Erro ao obter serviços comprados:', error);

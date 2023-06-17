@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const CadastroCliente = () => {
   const [nome, setNome] = useState('');
@@ -44,56 +45,64 @@ const CadastroCliente = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Tela de Cadastro de Cliente</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Nome:
-          <input
-            type="text"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Nome Social:
-          <input
-            type="text"
-            value={nomeSocial}
-            onChange={(e) => setNomeSocial(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          CPF:
-          <input
-            type="text"
-            value={CPF}
-            onChange={(e) => setCPF(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          RGs:
-          <input
-            type="text"
-            value={RGs}
-            onChange={(e) => setRGs(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Telefones:
-          <input
-            type="text"
-            value={telefones}
-            onChange={(e) => setTelefones(e.target.value)}
-          />
-        </label>
-        <br />
-        <button type="submit">Cadastrar</button>
-      </form>
+      <div className="form-container">
+        <form onSubmit={handleSubmit}>
+          <label>
+            Nome:
+            <input
+              type="text"
+              value={nome}
+              className="input-field"
+              onChange={(e) => setNome(e.target.value)}
+            />
+          </label>
+          <br />
+          <label>
+            Nome Social:
+            <input
+              type="text"
+              value={nomeSocial}
+              className="input-field"
+              onChange={(e) => setNomeSocial(e.target.value)}
+            />
+          </label>
+          <br />
+          <label>
+            CPF:
+            <input
+              type="text"
+              value={CPF}
+              className="input-field"
+              onChange={(e) => setCPF(e.target.value)}
+            />
+          </label>
+          <br />
+          <label>
+            RGs:
+            <input
+              type="text"
+              value={RGs}
+              className="input-field"
+              onChange={(e) => setRGs(e.target.value)}
+            />
+          </label>
+          <br />
+          <label>
+            Telefones:
+            <input
+              type="text"
+              value={telefones}
+              className="input-field"
+              onChange={(e) => setTelefones(e.target.value)}
+            />
+          </label>
+          <br />
+          <button className="login-button" type="submit">Cadastrar</button>
+        </form>
+      </div>
+      <button className="register-button"><Link to="/" className="back-button">Voltar</Link></button>
     </div>
   );
 };

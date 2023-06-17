@@ -26,7 +26,7 @@ const ListaServicos = () => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <h2>Serviços Comprados</h2>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <ul>

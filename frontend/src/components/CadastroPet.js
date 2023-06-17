@@ -30,7 +30,7 @@ const CadastroPet = () => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <h2>Cadastro de Pet</h2>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {successMessage && <p className="success-message">{successMessage}</p>}

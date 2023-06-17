@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import gifImage from '../images/Yasuo.gif';
 
 const Login = () => {
   const [cpf, setCPF] = useState('');
@@ -25,7 +26,7 @@ const Login = () => {
         if (result.success) {
           // Armazene o idCliente no localStorage
           localStorage.setItem('idCliente', result.clientId);
-          
+
           // Redirecione o usuário para a página desejada
           window.location.href = '/home';
         } else {
@@ -43,23 +44,32 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Tela de Login</h2>
-      <button>
-        <Link to="/cadastro">Cadastrar Cliente</Link>
-      </button>
-      <br />
-      <br />
-      <label>
-        CPF:
-        <input
-          type="text"
-          value={cpf}
-          onChange={(e) => setCPF(e.target.value)}
-        />
-      </label>
-      <br />
-      <button onClick={handleLogin}>Logar</button>
+    <div className="container">
+      <h2>Cuide do seu Yasuo</h2>
+      <div className="buttons-container">
+        <button className="register-button">
+          <Link to="/cadastro">Cadastrar Cliente</Link>
+        </button>
+        <button className="register-button">
+          <Link to="/admin">ADM</Link>
+        </button>
+      </div>
+      <div className="form-container">
+        <label>
+          CPF:
+          <input
+            type="text"
+            value={cpf}
+            onChange={(e) => setCPF(e.target.value)}
+            className="input-field"
+          />
+        </label>
+        <br />
+        <button onClick={handleLogin} className="login-button">Logar</button>
+      </div>
+      <div className="gif-container">
+        <img src={gifImage} alt="GIF" className="gif" />
+      </div>
     </div>
   );
 };

@@ -26,16 +26,17 @@ const ListaPets = () => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <h2>Lista de Pets</h2>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <ul>
         {pets.map((pet) => (
           <li key={pet.id}>
-            <p>Nome: {pet.nome}</p>
-            <p>Tipo: {pet.tipo}</p>
-            <p>Raça: {pet.raca}</p>
-            <p>Gênero: {pet.genero}</p>
+            {pet.id}.
+            Nome: {pet.nome} -
+            Tipo: {pet.tipo} -
+            Raça: {pet.raca} -
+            Gênero: {pet.genero}
           </li>
         ))}
       </ul>

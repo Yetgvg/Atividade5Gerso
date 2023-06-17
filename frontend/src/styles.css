@@ -1,9 +1,29 @@
+body {
+    background-color: #007acc;
+    /* Cor azul escolhida para o fundo da tela */
+}
+
+.container {
+    background-color: #ffffff;
+    /* Cor de fundo do container */
+    margin: 50px auto;
+    /* Adiciona margem superior e inferior de 20px e centraliza horizontalmente */
+    max-width: 500px;
+    /* Define a largura máxima do container */
+    padding: 20px;
+    /* Adiciona preenchimento interno ao container */
+    border-radius: 8px;
+    /* Adiciona borda arredondada ao container */
+}
+
+
 .navbar {
     background-color: #007acc;
     height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom: 5px solid white;
 }
 
 .navbar-container {
@@ -64,15 +84,17 @@
 
 .submenu li {
     margin-bottom: 10px;
-    list-style: none; /* Remover as bolinhas */
+    list-style: none;
+    /* Remover as bolinhas */
 }
 
 .submenu li a {
-    color: #ffffff; /* Texto dos submenus na cor branca */
+    color: #ffffff;
+    /* Texto dos submenus na cor branca */
     text-decoration: none;
 }
 
-.nav-item:hover > .submenu {
+.nav-item:hover>.submenu {
     display: block;
 }
 
@@ -81,4 +103,95 @@
     border-radius: 4px;
 }
 
-/* Ajuste os estilos restantes conforme necessário */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.input-field {
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.login-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #005fa3;
+}
+
+.register-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #007acc;
+    border: 1px solid #007acc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.register-button a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+.register-button:hover {
+    background-color: #007acc;
+    color: #ffffff;
+}
+
+.register-button:hover a {
+    background-color: #007acc;
+    color: #ffffff;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005fa3;
+}
+
+.gif-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.gif {
+    width: 40%;
+    /* Ajuste o tamanho do GIF conforme necessário */
+}
+
+.admin-links {
+    text-align: center;
+}
+
+.admin-links a{
+    text-decoration: none;
+}

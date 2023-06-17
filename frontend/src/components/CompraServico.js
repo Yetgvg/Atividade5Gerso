@@ -51,7 +51,7 @@ const ComprarServico = () => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <h2>Comprar Serviço</h2>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {successMessage && <p className="success-message">{successMessage}</p>}

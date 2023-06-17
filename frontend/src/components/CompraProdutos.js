@@ -45,7 +45,7 @@ const CompraProduto = () => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <h2>Produtos Disponíveis</h2>
       <ul>
         {produtos.map((produto) => (

@@ -5,26 +5,36 @@ import CadastroCliente from './components/CadastroCliente';
 import Home from './components/Home'; 
 import ComprarProduto from './components/CompraProdutos'; 
 import ComprarServico from './components/CompraServico'; 
-import CadastroPet from './components/CadastroPet';
-import ListaServicos from './components/ListaServicos';
-import ListaProdutos from './components/ListaProdutos';
-import ListaPets from './components/ListaPet';
+import ListaServicos from './components/ListaServicos'; 
+import ListaProdutos from './components/ListaProdutos'; 
+import ListaPets from './components/ListaPet'; 
+import CadastrarPet from './components/CadastroPet'; 
+import CadastroProduto from './components/CadastroProduto';
+import CadastroServico from './components/CadastroServico';
+import AtualizarProdutos from './components/AtualizarProduto';
+import AtualizarServicos from './components/AtualizarServico';
+import Layout from './components/Layout';
+import ADM from './components/Adm';
 import './styles.css';
 
 const AppRouter = () => {
-
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/cadastro" element={<CadastroCliente />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/comprar-produto" element={<ComprarProduto />} />
-        <Route path="/comprar-servico" element={<ComprarServico />} />
-        <Route path="/listar-servicos" element={<ListaServicos />} />
-        <Route path="/listar-produtos" element={<ListaProdutos />} />
-        <Route path="/cadastrar-pet" element={<CadastroPet />} />
-        <Route path="/listar-pets" element={<ListaPets />} />
+        <Route path="/comprar-produto" element={<Layout><ComprarProduto /></Layout>} />
+        <Route path="/comprar-servico" element={<Layout><ComprarServico /></Layout>} />
+        <Route path="/listar-servicos" element={<Layout><ListaServicos /></Layout>} />
+        <Route path="/listar-produtos" element={<Layout><ListaProdutos /></Layout>} />
+        <Route path="/listar-pets" element={<Layout><ListaPets /></Layout>} />
+        <Route path="/cadastrar-pet" element={<Layout><CadastrarPet /></Layout>} />
+        <Route path="/cadastro-produto" element={<CadastroProduto />} />
+        <Route path="/cadastro-servico" element={<CadastroServico/>}/>
+        <Route path="/atualizar-produto" element={<AtualizarProdutos />} />
+        <Route path="/atualizar-servico" element={<AtualizarServicos />} />
+        <Route path='/admin' element={<ADM></ADM>}/>
       </Routes>
     </Router>
   );

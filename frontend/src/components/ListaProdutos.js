@@ -26,7 +26,7 @@ const ListaProdutos = () => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <h2>Produtos na Sacola</h2>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <ul>
